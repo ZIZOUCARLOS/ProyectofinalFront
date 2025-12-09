@@ -1,0 +1,5 @@
+[
+  { "id": 1, "title": "Zapatillas Urban", "price": 45990, "image": "img/zapatillas.jpg" },
+  { "id": 2, "title": "Zapatillas Street", "price": 49990, "image": "img/zapatillas.jpg" },
+  { "id": 3, "title": "Zapatillas SportX", "price": 52990, "image": "img/zapatillas.jpg" }
+]

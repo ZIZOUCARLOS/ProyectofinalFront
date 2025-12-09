@@ -17,17 +17,21 @@ if (menuToggle && navMenu) {
 }
 
 
-// =======================================================
-//   📦 PRODUCTOS
-// =======================================================
-const products = [
-  { id: 1, title: "Zapatillas Urban Runner", price: 45990, image: "./img/zapatillas.jpg" },
-  { id: 2, title: "Zapatillas Street Pro", price: 49990, image: "./img/zapatillas.jpg" },
-  { id: 3, title: "Zapatillas SportX", price: 52990, image: "./img/zapatillas.jpg" },
-  { id: 4, title: "Zapatillas AirFlex", price: 55990, image: "./img/zapatillas.jpg" },
-  { id: 5, title: "Zapatillas Motion Lite", price: 38990, image: "./img/zapatillas.jpg" },
-  { id: 6, title: "Zapatillas UltraFlow", price: 44990, image: "./img/zapatillas.jpg" },
-];
+// =========================================
+//   Cargar productos con FETCH desde JSON
+// =========================================
+let products = [];
+
+async function loadProductsFromJSON() {
+  try {
+    const res = await fetch("producto.json");
+    products = await res.json();
+    loadProducts(); // usa la función que ya tenés para renderizar el slider
+  } catch (error) {
+    console.error("Error cargando productos.json", error);
+  }
+}
+
 
 
 // =======================================================
@@ -271,7 +275,8 @@ function showToast(message) {
 //   🚀 INICIALIZACIÓN
 // =======================================================
 document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
+  loadProductsFromJSON(); // ahora carga con fetch
   initSliderControls();
   updateCartCount();
 });
+
