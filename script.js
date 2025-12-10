@@ -26,7 +26,7 @@ async function loadProductsFromJSON() {
   try {
     const res = await fetch("producto.json");
     products = await res.json();
-    loadProducts(); // usa la función que ya tenés para renderizar el slider
+    loadProducts(); 
   } catch (error) {
     console.error("Error cargando productos.json", error);
   }
